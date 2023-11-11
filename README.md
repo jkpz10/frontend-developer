@@ -1,46 +1,27 @@
-Frontend Candidate Test
-===
+# React + TypeScript + Vite
 
-We have an exciting test for you! Feel free to look through the material and
-ask as many questions as you like to prepare for the test. Once you start
-coding, it should take 2-4 hours to complete.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-You can use whatever selection of tools that you like, so long as the project is built with React. This test is designed to assess skills relating to:
+Currently, two official plugins are available:
 
-- Component development and organisation
-- Interactions with an API
-- Attention to detail in design and implementation
-- Component and app styling
-- Ability to communicate
-- Effective testing
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-User Flow
----
-1. User enters any email address, and password 'meld123'
-2. User clicks log in
-3. User authenticated and taken to devices screen
-4. User presented with up-to-date (polls every 5 seconds) view of active devices
-5. User clicks 'notify' to signify completion of the test
+## Expanding the ESLint configuration
 
-Additionally:
-- When user logs in, they should remain logged in until they click "log out", or their browser data is cleared
-- If password is incorrect, error message is shown
-- On the devices screen, the circles orbit around the number
-- On the devices screen, the number of circles shown should equal the number of active devices
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-API
----
-There is an API running and waiting at [http://35.201.2.209:8000/](http://35.201.2.209:8000/).
+- Configure the top-level `parserOptions` property like this:
 
-Submission
----
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-Be sure to track the project in GitHub so you can send us the repo URL once
-you're done. If you find it's taking longer than 4 hours, that's fine - just
-submit what you have, and we'll take it from there.
-
-We'll follow-up with you either way to provide feedback and discuss your
-solution.
-
-
-Good luck!
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
