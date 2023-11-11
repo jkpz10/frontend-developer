@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { store } from '@/store/app/store';
-import App from '@/App';
-import '@/index.css';
+import IndexRoutes from './routes';
 
 let persistor = persistStore(store);
 
@@ -15,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Suspense>
-          <App />
+          <BrowserRouter>
+            <IndexRoutes />
+          </BrowserRouter>
         </Suspense>
       </PersistGate>
     </Provider>
