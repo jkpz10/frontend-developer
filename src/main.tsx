@@ -8,6 +8,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store } from '@/store/app/store';
 import IndexRoutes from './routes';
 
+import './index.css';
+
 let persistor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

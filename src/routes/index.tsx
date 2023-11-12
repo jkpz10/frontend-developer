@@ -2,14 +2,15 @@ import { Route, Routes } from 'react-router-dom';
 
 import { withMainData } from '@/hoc/with-main-data';
 
-import YourPageRoutes from './your-page';
-import ErrorNotFound from '@/pages/404';
+import Auth from '@/routes/auth';
+import MainRoutes from '@/routes/MainRoutes';
 
 const IndexRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<YourPageRoutes />} />
-      <Route path="*" element={<ErrorNotFound />} />
+      <Route path="/auth" element={<Auth />} />
+
+      <Route path="*" element={<MainRoutes />} />
     </Routes>
   );
 };
