@@ -58,6 +58,11 @@ export const InputField = styled.input`
   background: #eaeff0;
   border: 0;
   border-radius: 4px;
+  color: #8d8d8c;
+
+  :focus-visible {
+    color: #8d8d8c;
+  }
 `;
 
 export const Button = styled.button`

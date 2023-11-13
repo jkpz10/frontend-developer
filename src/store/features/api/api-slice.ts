@@ -1,3 +1,4 @@
+import { IFormLogin } from '@/pages/auth/Login/Login';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
 
@@ -12,6 +13,7 @@ export const apiSlice = createApi({
     baseUrl: `${VITE_APP_ENDPOINT}/`,
     prepareHeaders(headers) {
       headers.set('authorization', AUTH_TOKEN);
+      headers.set('Content-Type', 'application/json');
 
       return headers;
     },
@@ -24,12 +26,22 @@ export const apiSlice = createApi({
         query() {
           return `/devices`;
         },
-        transformResponse: (response: { data: { items: any[] } }) =>
-          response.data,
         providesTags: [],
+      }),
+      Login: builder.mutation({
+        query: ({ email, password }: IFormLogin) => ({
+          url: `/login`,
+          method: 'POST',
+          body: {
+            email,
+            password,
+          },
+          responseHandler: 'text',
+        }),
+        // invalidatesTags: [''],
       }),
     };
   },
 });
 
-export const { useFetchDevicesQuery } = apiSlice;
+export const { useFetchDevicesQuery, useLoginMutation } = apiSlice;

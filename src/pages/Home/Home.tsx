@@ -1,3 +1,4 @@
+import { useAuth } from '@/hooks/use-auth';
 import {
   Button,
   ButtonGroup,
@@ -5,8 +6,20 @@ import {
   FooterWrapper,
   TotalWrapper,
 } from '@/pages/Home/HomeStyled';
+import { useFetchDevicesQuery } from '@/store/features/api/api-slice';
+import { useEffect } from 'react';
 
 const Home = () => {
+  const { data, refetch } = useFetchDevicesQuery({});
+  const { doLogout } = useAuth();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Container>
       <TotalWrapper>
@@ -17,7 +30,7 @@ const Home = () => {
             fontWeight: 200,
           }}
         >
-          2
+          {data?.devices?.length ?? 0}
         </div>
         <div
           style={{
@@ -33,7 +46,7 @@ const Home = () => {
           <Button background="#ffffff" color="#334850">
             Notify
           </Button>
-          <Button background="#334850" color="#ffffff">
+          <Button background="#334850" color="#ffffff" onClick={doLogout}>
             Log Out
           </Button>
         </ButtonGroup>
