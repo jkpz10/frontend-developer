@@ -25,3 +25,34 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+## Getting Started
+
+### 1. Clone the Repository
+
+First things first, clone the repository to your local machine.
+
+### 2. Node Version
+Make sure you have Node.js installed on your machine. We recommend using version 20 or the latest.
+
+### 3. Install Dependencies
+Navigate to the project directory and install the necessary dependencies using either yarn or npm.
+
+```bash
+cd project-name
+yarn install
+# or
+npm install
+
+```
+
+### 4. Run the App
+To start the app, use the following command:
+
+```bash
+yarn dev
+# or
+npm run dev
+
+```
