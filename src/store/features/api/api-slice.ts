@@ -12,7 +12,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${VITE_APP_ENDPOINT}/`,
     prepareHeaders(headers) {
-      headers.set('authorization', AUTH_TOKEN);
+      headers.set('Authorization', `Bearer ${AUTH_TOKEN}`);
       headers.set('Content-Type', 'application/json');
 
       return headers;
@@ -28,7 +28,7 @@ export const apiSlice = createApi({
         },
         providesTags: [],
       }),
-      Login: builder.mutation({
+      login: builder.mutation({
         query: ({ email, password }: IFormLogin) => ({
           url: `/login`,
           method: 'POST',
@@ -38,10 +38,23 @@ export const apiSlice = createApi({
           },
           responseHandler: 'text',
         }),
+      }),
+      notify: builder.mutation({
+        query: ({ name, email, repoUrl, message }) => ({
+          url: `/notify`,
+          method: 'POST',
+          body: {
+            name,
+            email,
+            repoUrl,
+            message
+          },
+          responseHandler: 'text',
+        }),
         // invalidatesTags: [''],
       }),
     };
   },
 });
 
-export const { useFetchDevicesQuery, useLoginMutation } = apiSlice;
+export const { useFetchDevicesQuery, useLoginMutation, useNotifyMutation } = apiSlice;
