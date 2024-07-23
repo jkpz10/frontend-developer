@@ -31,7 +31,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormWrapper>
             <InputIcons>
-              <Icon src={'/frontend-developer/icons/mail.svg'} alt="email" />
+              <Icon src={'/icons/mail.svg'} alt="email" />
               <InputField
                 className="input-field"
                 type="text"
@@ -40,7 +40,7 @@ const Login = () => {
               />
             </InputIcons>
             <InputIcons>
-              <Icon src={'/frontend-developer/icons/release-alert.svg'} alt="email" />
+              <Icon src={'/icons/release-alert.svg'} alt="email" />
               <InputField
                 className="input-field"
                 type="password"

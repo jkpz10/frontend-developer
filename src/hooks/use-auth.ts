@@ -15,13 +15,14 @@ export const useAuth = () => {
   };
 
   useEffect(() => {
+    if (isAuthenticated) return navigate('/');
     if (data && isSuccess) {
       console.log({ data, isSuccess });
 
       Cookies.set('token', data);
-      navigate('/');
+      navigate(0);
     }
-  }, [data, isSuccess]);
+  }, [data, isSuccess, isAuthenticated]);
 
   return { doLogin, doLogout, isAuthenticated };
 };
