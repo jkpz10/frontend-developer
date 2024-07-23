@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
 
 // const DOGS_API_KEY = 'cbfb51a2-84b6-4025-a3e2-ed8616edf311';
-const AUTH_TOKEN = Cookies.get('token') ?? '';
+const AUTH_TOKEN = Cookies.get('token');
 
 const { VITE_APP_ENDPOINT } = import.meta.env;
 
