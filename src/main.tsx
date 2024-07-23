@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Suspense>
-          <BrowserRouter basename={"/frontend-developer/"}>
+          <BrowserRouter basename={"/"}>
             <IndexRoutes />
           </BrowserRouter>
         </Suspense>

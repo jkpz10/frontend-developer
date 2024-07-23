@@ -47,7 +47,7 @@ export const apiSlice = createApi({
             name,
             email,
             repoUrl,
-            message
+            message,
           },
           responseHandler: 'text',
         }),
@@ -57,4 +57,5 @@ export const apiSlice = createApi({
   },
 });
 
-export const { useFetchDevicesQuery, useLoginMutation, useNotifyMutation } = apiSlice;
+export const { useFetchDevicesQuery, useLoginMutation, useNotifyMutation } =
+  apiSlice;
